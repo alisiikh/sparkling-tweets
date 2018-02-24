@@ -45,9 +45,16 @@ dependencies {
 }
 
 compileScala {
-    scalaCompileOptions.additionalParameters = [
-            "-Xplugin:" + configurations.scalaCompilerPlugin.asPath
-    ]
+    configure(scalaCompileOptions) {
+        additionalParameters = [
+                "-feature",
+                "-deprecation",
+                "-unchecked",
+                "-Xfatal-warnings",
+                "-Ypartial-unification",
+                "-Xplugin:" + configurations.scalaCompilerPlugin.asPath
+        ]
+    }
 }
 
 test {
