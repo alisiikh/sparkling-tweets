@@ -39,6 +39,7 @@ dependencies {
     compile libs.simulacrum
     compile libs.catsCore
     compile libs.catsLaws
+    compile libs.monix
 
     testCompile libs.scalaTest
     testRuntime libs.pegdown

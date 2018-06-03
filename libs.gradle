@@ -1,18 +1,18 @@
 ext {
     scalaLangVersion = '2.12'
     scalaVersion = '2.12.4'
-    macroParadiseVersion = '2.1.0'
-    simulacrumVersion = '0.12.0'
     catsVersion = '1.0.1'
-    scalaTestVersion = '3.0.5'
 
     libs = [
             scala: "org.scala-lang:scala-library:$scalaVersion",
-            macroParadise: "org.scalamacros:paradise_$scalaVersion:$macroParadiseVersion",
-            simulacrum: "com.github.mpilquist:simulacrum_$scalaLangVersion:$simulacrumVersion",
+            macroParadise: "org.scalamacros:paradise_$scalaVersion:2.1.0",
+
+            monix: "io.monix:monix_$scalaLangVersion:3.0.0-RC1",
+            simulacrum: "com.github.mpilquist:simulacrum_$scalaLangVersion:0.12.0",
             catsCore: "org.typelevel:cats-core_$scalaLangVersion:$catsVersion",
             catsLaws: "org.typelevel:cats-laws_$scalaLangVersion:$catsVersion",
-            scalaTest: "org.scalatest:scalatest_$scalaLangVersion:$scalaTestVersion",
+
+            scalaTest: "org.scalatest:scalatest_$scalaLangVersion:3.0.5",
             pegdown: 'org.pegdown:pegdown:1.4.2'
     ]
 }
