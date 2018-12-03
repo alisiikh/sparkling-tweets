@@ -1,4 +1,4 @@
-package com.alisiikh
+package com.example
 
 object Main extends App {
   println("Hello, world!")

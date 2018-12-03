@@ -11,29 +11,30 @@ buildscript {
     }
 }
 
-apply plugin: 'scala'
-apply plugin: 'idea'
-apply plugin: "com.github.maiflai.scalatest"
-apply plugin: "com.diffplug.gradle.spotless"
-
-apply from: 'libs.gradle'
-
-group 'com.alisiikh'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
 
-configurations {
-    scalaCompilerPlugin
-}
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'com.github.maiflai.scalatest'
+apply plugin: 'com.diffplug.gradle.spotless'
+
+group = 'com.alisiikh'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+apply from: 'gradle/dependencies.gradle'
+apply from: 'gradle/scalaCompiler.gradle'
 
 dependencies {
-    scalaCompilerPlugin libs.macroParadise
+    compile deps.scala
+    compile deps.simulacrum
+    compile deps.catsCore
+    compile deps.catsLaws
+    compile deps.monix
 
     compile libs.scala
     compile libs.simulacrum
@@ -41,21 +42,8 @@ dependencies {
     compile libs.catsLaws
     compile libs.monix
 
-    testCompile libs.scalaTest
-    testRuntime libs.pegdown
-}
-
-compileScala {
-    configure(scalaCompileOptions) {
-        additionalParameters = [
-                "-feature",
-                "-deprecation",
-                "-unchecked",
-                "-Xfatal-warnings",
-                "-Ypartial-unification",
-                "-Xplugin:" + configurations.scalaCompilerPlugin.asPath
-        ]
-    }
+    testCompile deps.scalaTest
+    testRuntime deps.pegdown
 }
 
 test {

@@ -3,7 +3,9 @@ ext {
     scalaVersion = '2.12.4'
     catsVersion = '1.0.1'
 
-    libs = [
+    sparkVersion = '2.4.0'
+
+    deps = [
             scala: "org.scala-lang:scala-library:$scalaVersion",
             macroParadise: "org.scalamacros:paradise_$scalaVersion:2.1.0",
 

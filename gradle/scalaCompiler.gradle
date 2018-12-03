@@ -1,0 +1,20 @@
+configurations {
+    scalaCompilerPlugin
+}
+
+dependencies {
+    scalaCompilerPlugin deps.macroParadise
+}
+
+compileScala {
+    configure(scalaCompileOptions) {
+        additionalParameters = [
+                "-feature",
+                "-deprecation",
+                "-unchecked",
+                "-Xfatal-warnings",
+                "-Ypartial-unification",
+                "-Xplugin:${configurations.scalaCompilerPlugin.asPath}"
+        ]
+    }
+}
