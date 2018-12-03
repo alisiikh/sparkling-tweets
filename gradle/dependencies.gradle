@@ -4,17 +4,28 @@ ext {
     catsVersion = '1.0.1'
 
     sparkVersion = '2.4.0'
+    twitter4jVersion = '4.0.7'
 
     deps = [
-            scala: "org.scala-lang:scala-library:$scalaVersion",
-            macroParadise: "org.scalamacros:paradise_$scalaVersion:2.1.0",
+            scala          : "org.scala-lang:scala-library:$scalaVersion",
+            macroParadise  : "org.scalamacros:paradise_$scalaVersion:2.1.0",
 
-            monix: "io.monix:monix_$scalaLangVersion:3.0.0-RC1",
-            simulacrum: "com.github.mpilquist:simulacrum_$scalaLangVersion:0.12.0",
-            catsCore: "org.typelevel:cats-core_$scalaLangVersion:$catsVersion",
-            catsLaws: "org.typelevel:cats-laws_$scalaLangVersion:$catsVersion",
+            monix          : "io.monix:monix_$scalaLangVersion:3.0.0-RC1",
+            simulacrum     : "com.github.mpilquist:simulacrum_$scalaLangVersion:0.12.0",
+            catsCore       : "org.typelevel:cats-core_$scalaLangVersion:$catsVersion",
+            catsLaws       : "org.typelevel:cats-laws_$scalaLangVersion:$catsVersion",
 
-            scalaTest: "org.scalatest:scalatest_$scalaLangVersion:3.0.5",
-            pegdown: 'org.pegdown:pegdown:1.4.2'
+            sparkCore      : "org.apache.spark:spark-core_$scalaLangVersion:$sparkVersion",
+            sparkStream    : "org.apache.spark:spark-streaming_$scalaLangVersion:$sparkVersion",
+
+            twitter4jCore  : "org.twitter4j:twitter4j-core:$twitter4jVersion",
+            twitter4jStream: "org.twitter4j:twitter4j-stream:$twitter4jVersion",
+
+            logback        : 'ch.qos.logback:logback-classic:1.2.3',
+            scalaLogging   : "com.typesafe.scala-logging:scala-logging_${scalaLangVersion}:3.9.0",
+
+
+            scalaTest      : "org.scalatest:scalatest_$scalaLangVersion:3.0.5",
+            pegdown        : 'org.pegdown:pegdown:1.4.2'
     ]
 }

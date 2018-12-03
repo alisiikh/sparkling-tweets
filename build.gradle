@@ -28,6 +28,7 @@ targetCompatibility = 1.8
 
 apply from: 'gradle/dependencies.gradle'
 apply from: 'gradle/scalaCompiler.gradle'
+apply from: 'gradle/format.gradle'
 
 dependencies {
     compile deps.scala
@@ -36,11 +37,13 @@ dependencies {
     compile deps.catsLaws
     compile deps.monix
 
-    compile libs.scala
-    compile libs.simulacrum
-    compile libs.catsCore
-    compile libs.catsLaws
-    compile libs.monix
+    compile deps.sparkCore
+    compile deps.sparkStream
+    compile deps.twitter4jCore
+    compile deps.twitter4jStream
+
+    compile deps.logback
+    compile deps.scalaLogging
 
     testCompile deps.scalaTest
     testRuntime deps.pegdown
@@ -48,16 +51,4 @@ dependencies {
 
 test {
     maxParallelForks = Runtime.runtime.availableProcessors()
-}
-
-spotless {
-    scala {
-        scalafmt('1.4.0').configFile('.scalafmt.conf')
-    }
-    format 'misc', {
-        target '**/*.gradle', '**/*.properties', '**/*.conf'
-        indentWithSpaces()
-        trimTrailingWhitespace()
-        endWithNewline()
-    }
 }

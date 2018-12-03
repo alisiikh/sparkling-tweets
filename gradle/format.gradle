@@ -1,0 +1,11 @@
+spotless {
+    scala {
+        scalafmt('1.4.0').configFile('.scalafmt.conf')
+    }
+    format 'misc', {
+        target '**/*.gradle', '**/*.properties', '**/*.conf'
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
